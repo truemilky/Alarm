@@ -248,4 +248,8 @@ button[type='submit']:hover {
         width: 50px;
         height: 50px;
     }
+
+    .error__wrapper {
+        margin-top: 25px;
+    }
 }
