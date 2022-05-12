@@ -1,0 +1,314 @@
+@font-face {
+    font-family: 'a_LCDNova';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/lcdbold.ttf') format('truetype');
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(131, 98, 255, 1) 46%, rgba(252, 176, 69, 1) 100%);
+
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    font-family: 'a_LCDNova', arial;
+    max-width: 600px;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'a_LCDNova', arial;
+    text-shadow: 2px 2px 2px #aaa;
+    padding: 0 10px;
+}
+
+.clock__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 103, 121, 1) 100%, rgba(0, 212, 255, 1) 100%);
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.clock,
+.alarm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.clock__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock__body--hours-wrapper,
+.clock__body--minutes-wrapper,
+.clock__body--seconds-wrapper,
+.alarm__body--hours-wrapper,
+.alarm__body--minutes-wrapper,
+.alarm__body--seconds-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock__title,
+.alarm__title {
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.clock__body--hours,
+.clock__body--minutes,
+.clock__body--seconds,
+.alarm__form--inputs input {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.529);
+    border: 2px dashed #fff;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+}
+
+.clock__body--devider,
+.alarm__body--devider {
+    position: relative;
+    bottom: 16px;
+    color: #fff;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.alarm__body--devider {
+    bottom: 0;
+}
+
+.clock__body--info,
+.alarm__body--info, 
+.alarm__repeat--text {
+    font-size: 16px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.alarm__body--info {
+    margin-bottom: 10px;
+}
+
+.alarm__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.alarm__form--inputs {
+    display: flex;
+}
+
+.alarm__form--inputs input {
+    font-family: 'a_LCDNova', arial;
+    text-align: center;
+    margin: 0px;
+}
+
+button[type='submit'] {
+    font-family: 'a_LCDNova', arial;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: #fff;
+    outline: none;
+    color: #fff;
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    box-shadow: 5px 5px 20px 5px #9090903f;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+button[name='submit'] {
+    animation: button__submit 1s infinite linear;
+}
+
+button[type='submit']:hover {
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(126, 19, 19, 1) 100%);
+    transition: all ease .7s;
+}
+
+.message__wrapper {
+    padding: 20px;
+    color: rgb(80, 240, 255)
+}
+
+.alarm__screen {
+    position: absolute;
+    top: 20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(250, 30, 30, 0.375);
+    border: 2px solid rgba(0, 212, 255, 1);
+    border-radius: 50%;
+}
+
+.left {
+    left: 20px;
+}
+
+.right {
+    right: 20px;
+}
+
+.alarm__active {
+    animation: alarm__active 1s infinite linear;
+}
+
+.alarm__repeat {
+    width: 50px;
+    height: 26px;
+    margin-top: 10px;
+}
+
+label {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+label input {
+    appearance: none;
+}
+
+label span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 26px;
+    border-radius: 80px;
+    background: #5a7879;
+    transition: 0.5s;
+    box-shadow: 0 15px 25px #9ad3d559;
+}
+
+label input:checked~span {
+    background: #67b267;
+    box-shadow: 0 15px 25px #05be0566;
+}
+
+label span i {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+label input:checked~span i {
+    left: 26px;
+}
+
+input[name='repeat'] {
+    padding: 10px;
+}
+
+.alarm__repeat--text {
+    position: relative;
+    top: 20px
+}
+
+@keyframes alarm__active {
+    0% {
+        background-color: rgba(250, 30, 30, 0.375);
+    }
+
+    50% {
+        background-color: rgb(250, 30, 30);
+    }
+
+    100% {
+        background-color: rgba(250, 30, 30, 0.375);
+    }
+}
+
+@keyframes button__submit {
+    0% {
+        box-shadow: 5px 5px 20px 5px #9090903f;
+    }
+
+    25% {
+        box-shadow: 5px 5px 30px 5px #eaff003f;
+    }
+
+    50% {
+        box-shadow: 5px 5px 25px 5px #24ff413f;
+    }
+
+    75% {
+        box-shadow: 5px 5px 22px 5px #f80e0e3f;
+    }
+
+    100% {
+        box-shadow: 5px 5px 20px 5px #9090903f;
+    }
+}
+
+@media(max-width:652px) {
+    .clock__wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .container {
+        width: auto;
+    }
+
+    .alarm__screen {
+        top: 350px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .message__wrapper {
+        margin-top: 25px;
+    }
+}
